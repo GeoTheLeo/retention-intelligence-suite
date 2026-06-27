@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retention-intelligence-suite"
+version = "0.1.0"
+description = "Cross-Industry AI-Powered Retention Intelligence Platform"
+readme = "README.md"
+requires-python = ">=3.11"
+
+authors = [
+    { name = "GeoTheLeo" }
+]
+
+license = { text = "MIT" }
+
+dependencies = [
+    "streamlit",
+    "fastapi",
+    "uvicorn",
+    "pandas",
+    "numpy",
+    "plotly",
+    "duckdb",
+    "sqlalchemy",
+    "python-dotenv",
+    "pydantic",
+    "requests",
+    "scikit-learn",
+    "xgboost",
+    "shap",
+    "rich",
+    "pytest"
+]
+
+[tool.black]
+
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+
+line-length = 88
+target-version = "py311"
+
+[tool.pytest.ini_options]
+
+testpaths = [
+    "tests"
+]
+
+pythonpath = [
+    "."
+]
