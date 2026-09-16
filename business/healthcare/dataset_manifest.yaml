@@ -1,0 +1,152 @@
+metadata:
+  dataset_name: "Patient Readmission Analytics"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Planning"
+  last_updated: "2026-09-16"
+
+purpose:
+  description: >
+    Defines the dataset required by the Healthcare module. Serves as
+    the blueprint for data ingestion, feature engineering, analytics,
+    machine learning, dashboards, and AI-generated care coordination
+    recommendations.
+
+business_goal:
+  primary_objective: >
+    Identify the care-engagement and clinical-complexity patterns that
+    predict hospital readmission, so care coordinators can intervene
+    before a discharged patient returns to the hospital.
+
+  supported_business_questions:
+    - Which discharged patients are at highest risk of readmission?
+    - Is readmission risk driven more by care-plan non-adherence or by
+      clinical complexity, for a given patient?
+    - Which care programs have the highest readmission rates?
+    - Which patients would benefit most from proactive outreach?
+
+datasets:
+
+  patients:
+
+    description: >
+      Master patient enrollment record, one per discharged patient
+      entering post-discharge tracking.
+
+    primary_key: patient_id
+
+    grain: One record per patient per discharge episode
+
+    update_frequency: Daily
+
+    source: Electronic Health Record
+
+    business_owner: Care Coordination
+
+    required_columns:
+      - patient_id
+      - program_type
+      - discharge_date
+      - chronic_condition_count
+
+    supports:
+
+      dashboards:
+        - Executive Overview
+        - Risk Segmentation
+
+      analytics:
+        - Segmentation
+        - Cohort Analysis
+
+      ml_features:
+        - Program Type
+        - Chronic Condition Count
+        - Time Since Discharge
+
+  care_engagement:
+
+    description: >
+      Medication adherence, follow-up attendance, and remote monitoring
+      engagement for each discharged patient.
+
+    primary_key: patient_id
+
+    grain: One record per patient (rolling snapshot)
+
+    update_frequency: Weekly
+
+    source: Care Management Platform
+
+    business_owner: Clinical Operations
+
+    required_columns:
+      - patient_id
+      - medication_adherence_rate
+      - followup_appointments_attended
+      - care_plan_checkins
+      - remote_monitoring_hours
+      - days_since_last_contact
+
+    supports:
+
+      dashboards:
+        - Care Engagement Trends
+
+      analytics:
+        - Readmission Risk
+        - Engagement Analysis
+
+      ml_features:
+        - Medication Adherence
+        - Follow-up Attendance
+        - Care Coordination Frequency
+        - Recency of Contact
+
+derived_features:
+
+  clinical:
+    - Chronic Condition Count
+    - Discharge-to-Readmission Interval
+
+  behavioral:
+    - Medication Adherence Rate
+    - Follow-up Attendance Rate
+    - Remote Monitoring Engagement
+
+  engagement:
+    - Days Since Last Contact
+    - Care Engagement Score
+
+target_variables:
+
+  primary:
+    - readmitted
+
+  secondary:
+    - readmission_risk_score
+
+data_quality:
+
+  completeness:
+    minimum_threshold: 95
+
+  duplicates:
+    allowed: false
+
+  null_strategy:
+    categorical: "Unknown"
+    numerical: "Median"
+
+privacy:
+
+  hipaa_compliant: true
+
+  pii:
+    - Patient Name
+    - Date of Birth
+    - Medical Record Number
+
+  anonymisation:
+    - Hash Patient IDs
+    - Remove Personal Identifiers

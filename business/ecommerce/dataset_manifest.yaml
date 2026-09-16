@@ -1,0 +1,153 @@
+metadata:
+  dataset_name: "Customer Retention Analytics"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Planning"
+  last_updated: "2026-09-16"
+
+purpose:
+  description: >
+    Defines the dataset required by the E-Commerce module, built around
+    RFM (Recency, Frequency, Monetary) analysis - the standard framework
+    retail data teams use for customer value and churn assessment.
+
+business_goal:
+  primary_objective: >
+    Identify which customers are becoming inactive before they fully
+    churn, and understand how acquisition channel quality affects
+    long-term retention.
+
+  supported_business_questions:
+    - Which customers are at risk of going inactive?
+    - Does acquisition channel predict retention quality?
+    - Which customers are high-value but at risk (worth saving)?
+    - What behaviors (cart abandonment, email engagement) predict churn?
+
+datasets:
+
+  customers:
+
+    description: >
+      Master customer record, one per acquired customer.
+
+    primary_key: customer_id
+
+    grain: One record per customer
+
+    update_frequency: Daily
+
+    source: Commerce Platform
+
+    business_owner: Growth Marketing
+
+    required_columns:
+      - customer_id
+      - acquisition_channel
+      - first_purchase_date
+
+    supports:
+
+      dashboards:
+        - Executive Overview
+        - Channel Performance
+
+      analytics:
+        - Segmentation
+        - Cohort Analysis
+
+      ml_features:
+        - Acquisition Channel
+        - Customer Tenure
+
+  purchase_behavior:
+
+    description: >
+      Order history, spend, and engagement signals per customer.
+
+    primary_key: customer_id
+
+    grain: One record per customer (rolling snapshot)
+
+    update_frequency: Daily
+
+    source: Commerce Platform + Email Marketing Platform
+
+    business_owner: Revenue Operations
+
+    required_columns:
+      - customer_id
+      - total_orders
+      - avg_order_value
+      - days_since_last_order
+      - cart_abandonment_count
+      - email_open_rate
+
+    supports:
+
+      dashboards:
+        - RFM Segmentation
+        - Retention Trends
+
+      analytics:
+        - Churn Risk
+        - Customer Value Analysis
+
+      ml_features:
+        - Purchase Frequency
+        - Average Order Value
+        - Recency
+        - Cart Abandonment Rate
+        - Email Engagement
+
+derived_features:
+
+  rfm:
+    - Recency (days since last order)
+    - Frequency (total orders)
+    - Monetary (average order value, total spend)
+
+  behavioral:
+    - Cart Abandonment Rate
+    - Email Engagement Rate
+
+  value:
+    - Customer Lifetime Value
+    - Total Spend
+
+target_variables:
+
+  primary:
+    - churned
+
+  secondary:
+    - churn_risk_score
+
+churn_definition: >
+  Operationally defined as no purchase within 180 days, consistent with
+  standard e-commerce practice, rather than an explicit cancellation
+  event (this dataset does not have subscriptions).
+
+data_quality:
+
+  completeness:
+    minimum_threshold: 95
+
+  duplicates:
+    allowed: false
+
+  null_strategy:
+    categorical: "Unknown"
+    numerical: "Median"
+
+privacy:
+
+  gdpr_compliant: true
+
+  pii:
+    - Email
+    - Shipping Address
+    - Payment Information
+
+  anonymisation:
+    - Hash Customer IDs
+    - Remove Personal Identifiers

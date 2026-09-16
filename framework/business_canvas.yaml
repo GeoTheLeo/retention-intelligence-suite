@@ -1,0 +1,120 @@
+# ============================================================================
+# Retention Intelligence Suite
+# Universal Business Canvas
+#
+# Every industry definition in /business must follow this schema.
+# This file serves as the canonical blueprint for business discovery,
+# analytics, machine learning, dashboards, executive reporting,
+# and AI-assisted recommendations.
+# ============================================================================
+
+metadata:
+  project_name:
+  industry:
+  version:
+  owner:
+  last_updated:
+
+business_context:
+  executive_summary:
+  business_problem:
+  why_it_matters:
+  financial_impact:
+
+stakeholders:
+
+  executive:
+    role:
+    primary_objective:
+
+  operational:
+    role:
+    primary_objective:
+
+  analytics:
+    role:
+    primary_objective:
+
+business_objectives:
+
+  short_term:
+
+  medium_term:
+
+  long_term:
+
+success_metrics:
+
+primary_kpis:
+
+secondary_kpis:
+
+business_questions:
+
+hypotheses:
+
+assumptions:
+
+constraints:
+
+risks:
+
+customer_segments:
+
+data_sources:
+
+required_tables:
+
+features:
+
+analytics:
+
+  descriptive:
+
+  diagnostic:
+
+  predictive:
+
+  prescriptive:
+
+machine_learning:
+
+  target_variable:
+
+  candidate_models:
+
+  explainability:
+
+recommendations:
+
+quick_wins:
+
+strategic_initiatives:
+
+expected_business_impact:
+
+dashboard:
+
+executive_dashboard:
+
+operational_dashboard:
+
+consulting_story:
+
+current_state:
+
+key_findings:
+
+recommendation:
+
+expected_roi:
+
+ai_advisor:
+
+example_questions:
+
+required_context:
+
+response_style:
+
+future_expansion:

@@ -1,0 +1,11 @@
+user_id,signup_date,country,subscription_tier,acquisition_channel
+1001,2024-01-03,Germany,Premium,Organic
+1002,2024-02-11,Germany,Free,Google Ads
+1003,2023-11-21,France,Premium,Referral
+1004,2024-03-05,Spain,Student,Organic
+1005,2024-01-28,Germany,Family,Facebook
+1006,2024-04-17,UK,Premium,Referral
+1007,2024-05-02,Germany,Free,Organic
+1008,2023-12-01,Netherlands,Premium,Organic
+1009,2024-02-14,France,Student,Instagram
+1010,2024-03-20,Germany,Family,Organic

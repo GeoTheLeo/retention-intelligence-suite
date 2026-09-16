@@ -1,0 +1,409 @@
+metadata:
+  project_name: "Retention Intelligence Suite"
+  industry: "Music Entertainment"
+  module_id: "music"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Active"
+  last_updated: "2026-06-27"
+
+business_context:
+
+  executive_summary: >
+    Music streaming platforms, record labels, artists, and event promoters
+    invest heavily in acquiring listeners. While acquisition is important,
+    long-term profitability depends on retaining highly engaged fans whose
+    continued streaming, merchandise purchases, concert attendance and social
+    engagement drive Customer Lifetime Value (CLV).
+
+  business_problem: >
+    High-value fans gradually disengage from artists and platforms before
+    completely churning. Most organisations identify churn too late to
+    intervene effectively.
+
+  why_it_matters: >
+    Losing loyal fans reduces recurring streaming revenue, ticket sales,
+    merchandise purchases and word-of-mouth promotion while increasing customer
+    acquisition costs.
+
+  financial_impact:
+
+    revenue_streams:
+      - Streaming subscriptions
+      - Advertising revenue
+      - Merchandise sales
+      - Concert ticket sales
+      - Premium memberships
+
+    business_costs:
+      - Customer acquisition
+      - Marketing campaigns
+      - Artist promotion
+      - Platform development
+
+stakeholders:
+
+  executive:
+
+    title: "Chief Product Officer"
+
+    objectives:
+      - Increase customer retention
+      - Improve Customer Lifetime Value
+      - Increase engagement
+
+  marketing:
+
+    title: "Marketing Director"
+
+    objectives:
+      - Improve campaign effectiveness
+      - Increase fan engagement
+      - Reduce acquisition cost
+
+  analytics:
+
+    title: "Head of Analytics"
+
+    objectives:
+      - Build churn prediction models
+      - Improve business reporting
+      - Deliver actionable insights
+
+business_objectives:
+
+  short_term:
+
+    - Identify at-risk fans
+
+    - Understand behavioural changes
+
+    - Build executive dashboards
+
+  medium_term:
+
+    - Predict churn
+
+    - Increase repeat engagement
+
+    - Personalise retention campaigns
+
+  long_term:
+
+    - Maximise Customer Lifetime Value
+
+    - Reduce customer acquisition costs
+
+    - Create AI-assisted decision support
+
+primary_kpis:
+
+  - Customer Retention Rate
+
+  - Churn Rate
+
+  - Customer Lifetime Value
+
+  - Monthly Active Users
+
+  - Weekly Active Users
+
+  - Listening Frequency
+
+  - Playlist Saves
+
+  - Session Duration
+
+secondary_kpis:
+
+  - Average Revenue Per User
+
+  - Repeat Purchases
+
+  - Merchandise Revenue
+
+  - Concert Attendance
+
+  - Playlist Completion Rate
+
+business_questions:
+
+  - Which fans are most likely to churn?
+
+  - What behavioural changes precede churn?
+
+  - Which customer segments generate the highest lifetime value?
+
+  - Which interventions improve retention?
+
+  - Which artists have the strongest fan loyalty?
+
+hypotheses:
+
+  - Reduced listening frequency precedes churn.
+
+  - Playlist saves correlate with long-term retention.
+
+  - Concert attendance predicts higher lifetime value.
+
+  - Merchandise buyers exhibit lower churn.
+
+  - Multi-platform engagement reduces churn risk.
+
+assumptions:
+
+  - User behaviour accurately reflects engagement.
+
+  - Historical behaviour predicts future behaviour.
+
+  - Customer identifiers remain consistent.
+
+constraints:
+
+  - GDPR compliance
+
+  - Missing behavioural data
+
+  - Seasonal listening patterns
+
+risks:
+
+  - Incomplete customer histories
+
+  - External market events
+
+  - Artist release schedules
+
+customer_segments:
+
+  - Casual Listeners
+
+  - Regular Listeners
+
+  - Loyal Fans
+
+  - Premium Subscribers
+
+  - Dormant Users
+
+data_sources:
+
+  internal:
+
+    - Streaming Events
+
+    - Subscription Database
+
+    - CRM
+
+    - Merchandise Sales
+
+    - Ticket Sales
+
+  external:
+
+    - Social Media Metrics
+
+    - Artist Release Calendar
+
+required_tables:
+
+  - users
+
+  - listening_history
+
+  - subscriptions
+
+  - playlists
+
+  - merchandise
+
+  - concerts
+
+features:
+
+  behavioural:
+
+    - Weekly listening hours
+
+    - Songs skipped
+
+    - Playlist saves
+
+    - Session duration
+
+    - Device type
+
+  transactional:
+
+    - Subscription tier
+
+    - Merchandise purchases
+
+    - Ticket purchases
+
+analytics:
+
+  descriptive:
+
+    - Customer segmentation
+
+    - Retention reporting
+
+    - Revenue analysis
+
+  diagnostic:
+
+    - Cohort analysis
+
+    - Funnel analysis
+
+    - Behaviour analysis
+
+  predictive:
+
+    - Churn prediction
+
+    - Lifetime value prediction
+
+  prescriptive:
+
+    - Retention campaigns
+
+    - Personalised recommendations
+
+machine_learning:
+
+  target_variable: "customer_churn"
+
+  candidate_models:
+
+    - Logistic Regression
+
+    - Random Forest
+
+    - XGBoost
+
+    - LightGBM
+
+  explainability:
+
+    - SHAP
+
+    - Feature Importance
+
+recommendations:
+
+  immediate:
+
+    - Identify high-risk customers weekly
+
+    - Monitor engagement trends
+
+    - Launch retention campaigns
+
+  strategic:
+
+    - Personalised playlists
+
+    - Loyalty programme
+
+    - AI-powered recommendation engine
+
+expected_business_impact:
+
+  revenue_growth: "5-10%"
+
+  churn_reduction: "8-15%"
+
+  retention_improvement: "10-20%"
+
+dashboard:
+
+  executive:
+
+    - Executive Overview
+
+    - Revenue
+
+    - Customer Retention
+
+    - Churn
+
+    - Customer Lifetime Value
+
+  operational:
+
+    - Customer Segments
+
+    - Cohorts
+
+    - Behaviour
+
+    - Artist Performance
+
+consulting_story:
+
+  current_state: >
+    Customer acquisition is healthy, but long-term fan retention is declining,
+    reducing lifetime value and increasing acquisition costs.
+
+  key_findings:
+
+    - Engagement declines before churn.
+
+    - Loyal fans display distinct behavioural patterns.
+
+    - Early intervention is possible.
+
+  recommendation: >
+    Introduce AI-assisted churn prediction, personalised retention campaigns
+    and executive monitoring dashboards.
+
+  expected_roi: >
+    A modest reduction in churn can generate significant long-term revenue
+    through improved Customer Lifetime Value and lower acquisition costs.
+
+ai_advisor:
+
+  persona: "Senior Analytics Consultant"
+
+  response_style:
+
+    - Executive Summary
+
+    - Evidence
+
+    - Root Cause Analysis
+
+    - Recommendations
+
+    - Expected Business Impact
+
+    - Confidence Assessment
+
+  example_questions:
+
+    - Why are Premium customers leaving?
+
+    - Which artists have the highest customer loyalty?
+
+    - Which customer segment should marketing prioritise?
+
+    - What is driving churn this month?
+
+future_expansion:
+
+  - Spotify
+
+  - Apple Music
+
+  - YouTube Music
+
+  - Deezer
+
+  - SoundCloud
+
+  - Live Nation
+
+  - Ticketmaster

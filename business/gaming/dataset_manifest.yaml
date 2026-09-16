@@ -1,0 +1,159 @@
+metadata:
+  dataset_name: "Player Retention Analytics"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Planning"
+  last_updated: "2026-09-16"
+
+purpose:
+  description: >
+    Defines the dataset required by the Gaming module. Focuses on
+    session-based engagement, monetization tier, and social features
+    (guild membership) as independent predictors of player churn.
+
+business_goal:
+  primary_objective: >
+    Identify which players are disengaging before they fully churn,
+    and quantify how social features (guilds/clans) affect retention
+    independently of raw play frequency.
+
+  supported_business_questions:
+    - Which players are at risk of churning?
+    - Does guild membership meaningfully reduce churn risk?
+    - Which monetization tier has the highest churn risk?
+    - What session behaviors predict disengagement?
+
+datasets:
+
+  players:
+
+    description: >
+      Master player record, one per active player.
+
+    primary_key: player_id
+
+    grain: One record per player
+
+    update_frequency: Daily
+
+    source: Game Platform
+
+    business_owner: Player Retention Team
+
+    required_columns:
+      - player_id
+      - platform
+      - monetization_tier
+      - first_session_date
+
+    supports:
+
+      dashboards:
+        - Executive Overview
+        - Monetization Segmentation
+
+      analytics:
+        - Segmentation
+        - Cohort Analysis
+
+      ml_features:
+        - Platform
+        - Monetization Tier
+        - Player Tenure
+
+  session_activity:
+
+    description: >
+      Session frequency, depth, progression, and social engagement.
+
+    primary_key: player_id
+
+    grain: One record per player (rolling snapshot)
+
+    update_frequency: Daily
+
+    source: Game Telemetry
+
+    business_owner: Product Analytics
+
+    required_columns:
+      - player_id
+      - sessions_per_week
+      - avg_session_minutes
+      - levels_completed
+      - in_game_purchases
+      - guild_member
+      - days_since_last_session
+
+    supports:
+
+      dashboards:
+        - Engagement Trends
+        - Retention Curves (D1/D7/D30)
+
+      analytics:
+        - Churn Risk
+        - Social Feature Impact
+
+      ml_features:
+        - Session Frequency
+        - Session Depth
+        - Progression Rate
+        - Guild Membership
+        - Recency
+
+derived_features:
+
+  behavioral:
+    - Sessions Per Week
+    - Average Session Length
+    - Progression Rate
+
+  social:
+    - Guild Membership
+
+  monetization:
+    - In-Game Purchase Total
+    - Monetization Tier
+
+  engagement:
+    - Days Since Last Session
+    - Engagement Score
+
+target_variables:
+
+  primary:
+    - churned
+
+  secondary:
+    - churn_risk_score
+
+retention_curves:
+  note: >
+    Gaming uses D1/D7/D30 retention (days since first session) as the
+    industry-standard supplement to monthly cohort retention, computed
+    via the same CohortAnalyzer with a daily period instead of monthly.
+
+data_quality:
+
+  completeness:
+    minimum_threshold: 95
+
+  duplicates:
+    allowed: false
+
+  null_strategy:
+    categorical: "Unknown"
+    numerical: "Median"
+
+privacy:
+
+  gdpr_compliant: true
+
+  pii:
+    - Email
+    - Payment Information
+
+  anonymisation:
+    - Hash Player IDs
+    - Remove Personal Identifiers

@@ -1,0 +1,354 @@
+metadata:
+  dataset_name: "Music Fan Retention Analytics"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Planning"
+  last_updated: "2026-06-27"
+
+purpose:
+  description: >
+    Defines every dataset required by the Music Entertainment module.
+    Serves as the blueprint for data ingestion, feature engineering,
+    analytics, machine learning, dashboards, and AI-generated business
+    recommendations.
+
+business_goal:
+  primary_objective: >
+    Identify the behavioural, transactional and engagement patterns that
+    predict fan churn and reduce Customer Lifetime Value.
+
+  supported_business_questions:
+    - Which fans are most likely to disengage?
+    - What behaviours predict churn?
+    - Which customers are most valuable?
+    - Which interventions should marketing prioritise?
+    - Which artists generate the strongest loyalty?
+
+datasets:
+
+  users:
+
+    description: >
+      Master customer information.
+
+    primary_key: user_id
+
+    grain: One record per user
+
+    update_frequency: Daily
+
+    source: Internal CRM
+
+    business_owner: Customer Success
+
+    required_columns:
+
+      - user_id
+      - signup_date
+      - country
+      - subscription_tier
+      - acquisition_channel
+
+    supports:
+
+      dashboards:
+        - Executive Overview
+        - Customer Segmentation
+
+      analytics:
+        - Segmentation
+        - Cohort Analysis
+
+      ml_features:
+        - Customer Age
+        - Subscription Tier
+        - Customer Tenure
+
+  listening_history:
+
+    description: >
+      Every listening event performed by a customer.
+
+    primary_key: listening_event_id
+
+    grain: One record per listening event
+
+    update_frequency: Hourly
+
+    source: Streaming Platform
+
+    business_owner: Product Analytics
+
+    required_columns:
+
+      - listening_event_id
+      - user_id
+      - artist
+      - album
+      - track
+      - timestamp
+      - listening_duration
+      - completed
+      - skipped
+
+    supports:
+
+      dashboards:
+        - Listening Trends
+        - Artist Engagement
+
+      analytics:
+        - Behaviour Analysis
+        - Retention Analysis
+
+      ml_features:
+        - Listening Frequency
+        - Average Session Length
+        - Skip Rate
+        - Daily Activity
+
+  playlists:
+
+    description: >
+      Playlist interactions including creation, follows and saves.
+
+    primary_key: playlist_event_id
+
+    grain: One interaction
+
+    update_frequency: Daily
+
+    source: Streaming Platform
+
+    business_owner: Product Team
+
+    required_columns:
+
+      - playlist_event_id
+      - user_id
+      - playlist_id
+      - action
+      - timestamp
+
+    supports:
+
+      dashboards:
+        - Playlist Engagement
+
+      analytics:
+        - Loyalty Analysis
+
+      ml_features:
+        - Playlist Saves
+        - Playlist Creation
+        - Playlist Following
+
+  subscriptions:
+
+    description: >
+      Customer subscription history.
+
+    primary_key: subscription_id
+
+    grain: One subscription
+
+    update_frequency: Daily
+
+    source: Billing Platform
+
+    business_owner: Finance
+
+    required_columns:
+
+      - subscription_id
+      - user_id
+      - plan
+      - monthly_fee
+      - renewal_date
+      - active
+
+    supports:
+
+      dashboards:
+        - Revenue
+        - Subscriber Growth
+
+      analytics:
+        - Revenue Analysis
+
+      ml_features:
+        - Subscription Tier
+        - Revenue
+        - Renewal Behaviour
+
+  merchandise:
+
+    description: >
+      Artist merchandise purchases.
+
+    primary_key: order_id
+
+    grain: One order
+
+    update_frequency: Daily
+
+    source: Commerce Platform
+
+    business_owner: E-Commerce
+
+    required_columns:
+
+      - order_id
+      - user_id
+      - order_value
+      - artist
+      - purchase_date
+
+    supports:
+
+      dashboards:
+        - Merchandise Revenue
+
+      analytics:
+        - Purchase Behaviour
+
+      ml_features:
+        - Merchandise Spend
+        - Purchase Frequency
+
+  concerts:
+
+    description: >
+      Concert attendance and ticket purchases.
+
+    primary_key: ticket_id
+
+    grain: One ticket purchase
+
+    update_frequency: Daily
+
+    source: Ticketing Platform
+
+    business_owner: Events
+
+    required_columns:
+
+      - ticket_id
+      - user_id
+      - artist
+      - event_date
+      - ticket_price
+
+    supports:
+
+      dashboards:
+        - Concert Attendance
+
+      analytics:
+        - Fan Loyalty
+
+      ml_features:
+        - Concert Attendance
+        - Event Frequency
+
+derived_features:
+
+  behavioural:
+
+    - Weekly Listening Hours
+    - Monthly Listening Hours
+    - Listening Frequency
+    - Session Duration
+    - Skip Rate
+    - Playlist Save Rate
+
+  engagement:
+
+    - Days Since Last Activity
+    - Active Weeks
+    - Artist Diversity
+    - Album Diversity
+    - Repeat Artist Ratio
+
+  financial:
+
+    - Customer Lifetime Value
+    - Merchandise Spend
+    - Ticket Spend
+    - Average Revenue Per User
+
+target_variables:
+
+  primary:
+
+    - customer_churn
+
+  secondary:
+
+    - customer_lifetime_value
+    - purchase_probability
+
+data_quality:
+
+  completeness:
+
+    minimum_threshold: 95
+
+  duplicates:
+
+    allowed: false
+
+  null_strategy:
+
+    categorical: "Unknown"
+
+    numerical: "Median"
+
+  validation:
+
+    - Unique Primary Keys
+    - Valid Dates
+    - Positive Revenue
+    - Valid Customer IDs
+
+privacy:
+
+  gdpr_compliant: true
+
+  pii:
+
+    - Email
+    - Phone Number
+    - Payment Information
+
+  anonymisation:
+
+    - Hash User IDs
+    - Remove Personal Identifiers
+
+dashboard_dependencies:
+
+  executive_dashboard:
+
+    - users
+    - subscriptions
+    - merchandise
+    - concerts
+
+  operations_dashboard:
+
+    - listening_history
+    - playlists
+
+  ai_advisor:
+
+    - All datasets
+
+future_datasets:
+
+  - Spotify API
+  - Apple Music API
+  - Last.fm API
+  - YouTube Music
+  - Social Media Engagement
+  - Music Festival Attendance

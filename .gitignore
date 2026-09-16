@@ -50,8 +50,8 @@ data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# Models
-models/
+# Models (root-level saved-model artifacts only, not shared/models/ source code)
+/models/
 
 # Streamlit
 .streamlit/secrets.toml

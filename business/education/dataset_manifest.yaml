@@ -1,0 +1,148 @@
+metadata:
+  dataset_name: "Student Retention Analytics"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Planning"
+  last_updated: "2026-09-16"
+
+purpose:
+  description: >
+    Defines the dataset required by the Education module. Serves as the
+    blueprint for data ingestion, feature engineering, analytics,
+    machine learning, dashboards, and AI-generated academic advising
+    recommendations.
+
+business_goal:
+  primary_objective: >
+    Identify the academic, engagement, and support-usage patterns that
+    predict student dropout, so advising teams can intervene before a
+    student disengages entirely.
+
+  supported_business_questions:
+    - Which students are most likely to withdraw?
+    - What behaviors predict disengagement before it becomes dropout?
+    - Which students would benefit most from proactive advising outreach?
+    - Which enrollment types have the highest retention risk?
+
+datasets:
+
+  students:
+
+    description: >
+      Master student record, one per enrolled student.
+
+    primary_key: student_id
+
+    grain: One record per student
+
+    update_frequency: Daily
+
+    source: Student Information System
+
+    business_owner: Registrar
+
+    required_columns:
+      - student_id
+      - enrollment_type
+      - enrollment_date
+      - tuition_per_term
+
+    supports:
+
+      dashboards:
+        - Executive Overview
+        - Student Segmentation
+
+      analytics:
+        - Segmentation
+        - Cohort Analysis
+
+      ml_features:
+        - Enrollment Type
+        - Enrollment Tenure
+
+  engagement_activity:
+
+    description: >
+      LMS engagement, assignment submission, and support-service usage.
+
+    primary_key: student_id
+
+    grain: One record per student (rolling snapshot)
+
+    update_frequency: Weekly
+
+    source: Learning Management System
+
+    business_owner: Academic Affairs
+
+    required_columns:
+      - student_id
+      - lms_hours_weekly
+      - assignments_submitted
+      - advising_sessions_attended
+      - tutoring_hours_used
+      - days_since_last_login
+
+    supports:
+
+      dashboards:
+        - Engagement Trends
+
+      analytics:
+        - Dropout Risk
+        - Engagement Analysis
+
+      ml_features:
+        - LMS Engagement
+        - Assignment Completion Rate
+        - Advising Utilization
+        - Recency of Activity
+
+derived_features:
+
+  behavioral:
+    - Weekly LMS Hours
+    - Assignment Completion Rate
+    - Advising Session Frequency
+
+  engagement:
+    - Days Since Last Login
+    - Academic Engagement Score
+    - Support Service Utilization
+
+  financial:
+    - Tuition Per Term
+
+target_variables:
+
+  primary:
+    - dropped_out
+
+  secondary:
+    - academic_risk_score
+
+data_quality:
+
+  completeness:
+    minimum_threshold: 95
+
+  duplicates:
+    allowed: false
+
+  null_strategy:
+    categorical: "Unknown"
+    numerical: "Median"
+
+privacy:
+
+  ferpa_compliant: true
+
+  pii:
+    - Student Name
+    - Email
+    - Student ID Number
+
+  anonymisation:
+    - Hash Student IDs
+    - Remove Personal Identifiers
