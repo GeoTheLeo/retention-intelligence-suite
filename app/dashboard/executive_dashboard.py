@@ -49,4 +49,4 @@ def render() -> None:
 
     st.divider()
 
-    ai_panel.render()
+    ai_panel.render(industry)
