@@ -1,2 +1,15 @@
-# Generated before release.
-# Primary dependency management lives in pyproject.toml
+streamlit
+fastapi
+uvicorn
+pandas
+numpy
+plotly
+duckdb
+sqlalchemy
+python-dotenv
+pydantic
+requests
+scikit-learn
+xgboost
+shap
+rich
