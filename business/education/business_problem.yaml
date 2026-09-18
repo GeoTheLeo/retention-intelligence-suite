@@ -1,0 +1,58 @@
+metadata:
+  project_name: "Retention Intelligence Suite"
+  industry: "Education"
+  module_id: "education"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Active"
+  last_updated: "2026-09-18"
+
+business_context:
+
+  executive_summary: >
+    Educational institutions invest heavily in enrollment, but retention
+    and completion are what determine long-term revenue and institutional
+    reputation. Understanding which students disengage - and why - lets
+    advising teams intervene before withdrawal, not after.
+
+  business_problem: >
+    Students at risk of dropping out are usually identified only after
+    they've already stopped engaging, by which point advising outreach
+    has the least chance of success.
+
+  why_it_matters: >
+    Every student who withdraws represents lost tuition revenue, wasted
+    enrollment and advising investment, and an outcome that was often
+    preventable if disengagement had been caught earlier.
+
+primary_kpis:
+  - Student Dropout Rate
+  - Retention Rate
+  - Academic Engagement Score
+  - Advising Utilization
+  - LMS Engagement
+
+recommendations:
+
+  immediate:
+    - Flag students in the At Risk segment for advising outreach this week.
+    - Monitor LMS engagement weekly, not only at midterm.
+    - Prioritize outreach for students with declining advising session attendance.
+
+  strategic:
+    - Route At Risk students proactively into tutoring and advising programs.
+    - Feed advising-outcome data back into the model so it learns which interventions actually work.
+    - Extend the same churn framework to additional cohorts (by program or enrollment type) before building anything new.
+
+expected_business_impact:
+  dropout_reduction: "10-20%"
+  retention_improvement: "8-15%"
+
+ai_advisor:
+
+  persona: "Academic Retention Analyst"
+
+  example_questions:
+    - Why are students in the At Risk segment dropping out?
+    - What is driving student dropout this term?
+    - Which students should advising prioritize this week?

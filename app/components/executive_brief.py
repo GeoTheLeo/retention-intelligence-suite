@@ -4,6 +4,7 @@ import streamlit as st
 
 from backend.services.metrics_service import MetricsService
 from shared.utils.industry_registry import INDUSTRY_REGISTRY
+from shared.utils.yaml_loader import load_business_problem
 
 
 def render(industry: str) -> None:
@@ -12,14 +13,17 @@ def render(industry: str) -> None:
 
     metrics = MetricsService().get_metrics(industry)
 
+    manifest = load_business_problem(config.module_id)
+
+    business_problem = manifest["business_context"]["business_problem"].strip()
+
     st.subheader(f"{industry} Executive Brief")
 
     st.info(
         f"""
 ### Business Objective
 
-Identify {industry.lower()} accounts likely to disengage before they
-actually do, so outreach happens ahead of the loss, not after it.
+{business_problem}
 
 ### Executive Summary
 

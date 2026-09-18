@@ -28,6 +28,7 @@ class IndustryConfig:
     churn_column: str
     segment_names: list[str]
     churn_label: str
+    module_id: str
 
 
 def _load(engineering_cls: type) -> pd.DataFrame:
@@ -54,6 +55,7 @@ INDUSTRY_REGISTRY: dict[str, IndustryConfig] = {
         churn_column="churn_date",
         segment_names=["Casual", "Regular", "Loyal", "Champion"],
         churn_label="Fan Churn",
+        module_id="music",
     ),
     "Education": IndustryConfig(
         loader=lambda: _load(EducationFeatureEngineering),
@@ -74,6 +76,7 @@ INDUSTRY_REGISTRY: dict[str, IndustryConfig] = {
         churn_column="withdrawal_date",
         segment_names=["At Risk", "Building Momentum", "On Track", "Thriving"],
         churn_label="Student Dropout",
+        module_id="education",
     ),
     "Healthcare": IndustryConfig(
         loader=lambda: _load(HealthcareFeatureEngineering),
@@ -94,6 +97,7 @@ INDUSTRY_REGISTRY: dict[str, IndustryConfig] = {
         churn_column="readmission_date",
         segment_names=["Low Engagement", "Moderate", "Well-Managed", "Optimal"],
         churn_label="Patient Readmission",
+        module_id="healthcare",
     ),
     "E-Commerce": IndustryConfig(
         loader=lambda: _load(EcommerceFeatureEngineering),
@@ -113,6 +117,7 @@ INDUSTRY_REGISTRY: dict[str, IndustryConfig] = {
         churn_column="churn_date",
         segment_names=["At Risk", "Needs Attention", "Loyal", "Champion"],
         churn_label="Customer Churn",
+        module_id="ecommerce",
     ),
     "Gaming": IndustryConfig(
         loader=lambda: _load(GamingFeatureEngineering),
@@ -132,5 +137,6 @@ INDUSTRY_REGISTRY: dict[str, IndustryConfig] = {
         churn_column="churn_date",
         segment_names=["Casual", "Regular", "Dedicated", "Hardcore"],
         churn_label="Player Churn",
+        module_id="gaming",
     ),
 }

@@ -1,0 +1,57 @@
+metadata:
+  project_name: "Retention Intelligence Suite"
+  industry: "Gaming"
+  module_id: "gaming"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Active"
+  last_updated: "2026-09-18"
+
+business_context:
+
+  executive_summary: >
+    Player acquisition cost keeps rising across gaming platforms, but
+    retained, engaged players drive the recurring in-game purchases and
+    word-of-mouth growth that acquisition spend alone can't replace.
+
+  business_problem: >
+    Players disengage gradually - fewer sessions, shorter sessions, no
+    guild participation - well before they're flagged as churned, by
+    which point re-engagement is far harder.
+
+  why_it_matters: >
+    Losing an engaged player costs more than the missed in-game
+    purchases; it also removes a source of social pull (guild activity,
+    referrals) that keeps other players active.
+
+primary_kpis:
+  - Player Churn Rate
+  - Sessions Per Week
+  - Guild Membership Rate
+  - In-Game Purchase Rate
+  - Average Session Length
+
+recommendations:
+
+  immediate:
+    - Target the Casual segment with re-engagement pushes before session frequency drops further.
+    - Promote guild participation specifically - it's one of the strongest retention signals in the data.
+    - Use the model's risk score to prioritize win-back offers, not just recency.
+
+  strategic:
+    - Build guild-recommendation prompts for players not yet in a guild.
+    - Feed re-engagement campaign outcomes back into the model as labeled data.
+    - Extend the shared framework to additional player segments (by platform) before adding a new title.
+
+expected_business_impact:
+  churn_reduction: "10-15%"
+  engagement_improvement: "10-20%"
+
+ai_advisor:
+
+  persona: "Player Retention Analyst"
+
+  example_questions:
+    - Why are Casual players churning?
+    - Do guild members churn less than non-members?
+    - What is driving player churn this month?

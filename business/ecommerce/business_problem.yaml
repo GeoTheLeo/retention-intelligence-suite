@@ -1,0 +1,57 @@
+metadata:
+  project_name: "Retention Intelligence Suite"
+  industry: "E-Commerce"
+  module_id: "ecommerce"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Active"
+  last_updated: "2026-09-18"
+
+business_context:
+
+  executive_summary: >
+    Acquiring a new customer costs far more than retaining an existing
+    one, yet most e-commerce teams spend disproportionately on
+    acquisition while churn quietly erodes lifetime value.
+
+  business_problem: >
+    Customers drift from regular purchasers to churned accounts through
+    a series of small behavioral changes - rising cart abandonment,
+    falling email engagement - that go unnoticed until the customer is
+    already gone.
+
+  why_it_matters: >
+    Every churned customer represents lost repeat revenue and a wasted
+    acquisition cost that will never be recovered through a single order.
+
+primary_kpis:
+  - Customer Churn Rate
+  - Average Order Value
+  - Cart Abandonment Rate
+  - Email Open Rate
+  - Customer Lifetime Value
+
+recommendations:
+
+  immediate:
+    - Target the At Risk segment with a win-back offer before their next expected order window closes.
+    - Monitor cart abandonment and email engagement as early warning signals, not just recency.
+    - Prioritize outreach using the model's risk score, not blanket discounting.
+
+  strategic:
+    - Route Needs Attention customers into a nurture sequence before they reach At Risk.
+    - Feed win-back campaign outcomes back into the model as labeled data.
+    - Extend the shared framework to additional customer segments (by acquisition channel) before adding a new industry.
+
+expected_business_impact:
+  churn_reduction: "8-15%"
+  revenue_growth: "5-10%"
+
+ai_advisor:
+
+  persona: "Customer Retention Analyst"
+
+  example_questions:
+    - Why are customers in the At Risk segment churning?
+    - What is driving customer churn this month?
+    - Which segment should retention marketing prioritize?

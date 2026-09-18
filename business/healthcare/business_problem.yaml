@@ -1,0 +1,58 @@
+metadata:
+  project_name: "Retention Intelligence Suite"
+  industry: "Healthcare"
+  module_id: "healthcare"
+  version: "1.0.0"
+  owner: "GeoTheLeo"
+  status: "Active"
+  last_updated: "2026-09-18"
+
+business_context:
+
+  executive_summary: >
+    Preventable hospital readmissions drive both patient harm and
+    significant avoidable cost, yet most care teams only learn a
+    patient is at risk after a missed follow-up has already occurred.
+
+  business_problem: >
+    Patients drift toward readmission through a pattern of missed
+    follow-ups and declining care-plan engagement that's identifiable
+    well before a readmission event, if care teams are looking at the
+    right signals.
+
+  why_it_matters: >
+    Every preventable readmission represents avoidable cost, a worse
+    patient outcome, and a signal that care coordination broke down
+    earlier than it should have.
+
+primary_kpis:
+  - Readmission Rate
+  - Medication Adherence Rate
+  - Follow-up Attendance Rate
+  - Care Engagement Score
+  - Remote Monitoring Utilization
+
+recommendations:
+
+  immediate:
+    - Prioritize outreach to patients in the Low Engagement segment before their next scheduled follow-up.
+    - Flag declining medication adherence as an early warning signal, not just missed appointments.
+    - Use the model's risk score to target care coordination resources, not a blanket check-in schedule.
+
+  strategic:
+    - Route Low Engagement patients into a more frequent remote-monitoring check-in cadence.
+    - Feed actual readmission and intervention outcomes back into the model as labeled data.
+    - Extend the shared framework to additional patient populations (by condition type) before building a separate system.
+
+expected_business_impact:
+  readmission_reduction: "10-20%"
+  cost_avoidance: "Meaningful, tied directly to avoided readmissions"
+
+ai_advisor:
+
+  persona: "Care Coordination Analyst"
+
+  example_questions:
+    - Why are patients in the Low Engagement segment being readmitted?
+    - What is driving readmission risk this month?
+    - Which patients should care coordination prioritize this week?

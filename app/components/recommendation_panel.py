@@ -4,6 +4,7 @@ import streamlit as st
 
 from shared.models.segmentation_engine import SegmentationEngine
 from shared.utils.industry_registry import INDUSTRY_REGISTRY
+from shared.utils.yaml_loader import load_business_problem
 
 
 def render(industry: str) -> None:
@@ -61,5 +62,39 @@ def render(industry: str) -> None:
 - Extend the same shared framework to additional segments or products
   within {industry} before considering a new industry entirely — reuse
   before expansion.
+"""
+    )
+
+    manifest = load_business_problem(config.module_id)
+
+    playbook = manifest["recommendations"]
+
+    st.markdown("---")
+
+    st.markdown(f"### {industry} Business Playbook")
+
+    st.caption(
+        "Sourced from this module's business plugin manifest, not "
+        "recomputed from data — the domain-specific playbook for this "
+        "industry, distinct from the model-driven actions above."
+    )
+
+    immediate_items = "\n".join(
+        f"- {item}" for item in playbook["immediate"]
+    )
+
+    strategic_items = "\n".join(
+        f"- {item}" for item in playbook["strategic"]
+    )
+
+    st.markdown(
+        f"""
+**Immediate**
+
+{immediate_items}
+
+**Strategic**
+
+{strategic_items}
 """
     )
